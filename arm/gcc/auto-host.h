@@ -25,6 +25,12 @@
 #endif
 
 
+/* Define to the root for URLs about GCC changes. */
+#ifndef USED_FOR_TARGET
+#define CHANGES_ROOT_URL "https://gcc.gnu.org/"
+#endif
+
+
 /* Define as the number of bits in a byte, if `limits.h' doesn't. */
 #ifndef USED_FOR_TARGET
 /* #undef CHAR_BIT */
@@ -56,6 +62,12 @@
 #endif
 
 
+/* Define to larger than zero set the default stack clash protector size. */
+#ifndef USED_FOR_TARGET
+#define DEFAULT_STK_CLASH_GUARD_SIZE 0
+#endif
+
+
 /* Define if you want to use __cxa_atexit, rather than atexit, to register C++
    destructors for local statics and global objects. This is essential for
    fully standards-compliant handling of destructors, but requires
@@ -68,6 +80,24 @@
 /* The default for -fdiagnostics-color option */
 #ifndef USED_FOR_TARGET
 #define DIAGNOSTICS_COLOR_DEFAULT DIAGNOSTICS_COLOR_AUTO
+#endif
+
+
+/* The default for -fdiagnostics-urls option */
+#ifndef USED_FOR_TARGET
+#define DIAGNOSTICS_URLS_DEFAULT DIAGNOSTICS_URL_AUTO
+#endif
+
+
+/* Define to the root for documentation URLs. */
+#ifndef USED_FOR_TARGET
+#define DOCUMENTATION_ROOT_URL "https://gcc.gnu.org/onlinedocs/"
+#endif
+
+
+/* Define 0/1 if static analyzer feature is enabled. */
+#ifndef USED_FOR_TARGET
+#define ENABLE_ANALYZER 1
 #endif
 
 
@@ -303,12 +333,6 @@
 #endif
 
 
-/* Define if your assembler supports cmpb. */
-#ifndef USED_FOR_TARGET
-/* #undef HAVE_AS_CMPB */
-#endif
-
-
 /* Define to the level of your assembler's compressed debug section support.
    */
 #ifndef USED_FOR_TARGET
@@ -316,21 +340,9 @@
 #endif
 
 
-/* Define if your assembler supports the DCI/ICI instructions. */
-#ifndef USED_FOR_TARGET
-/* #undef HAVE_AS_DCI */
-#endif
-
-
 /* Define if your assembler supports the --debug-prefix-map option. */
 #ifndef USED_FOR_TARGET
 #define HAVE_AS_DEBUG_PREFIX_MAP 1
-#endif
-
-
-/* Define if your assembler supports DFP instructions. */
-#ifndef USED_FOR_TARGET
-/* #undef HAVE_AS_DFP */
 #endif
 
 
@@ -380,12 +392,6 @@
 /* Define if your assembler supports FMAF, HPC, and VIS 3.0 instructions. */
 #ifndef USED_FOR_TARGET
 /* #undef HAVE_AS_FMAF_HPC_VIS3 */
-#endif
-
-
-/* Define if your assembler supports fprnd. */
-#ifndef USED_FOR_TARGET
-/* #undef HAVE_AS_FPRND */
 #endif
 
 
@@ -547,12 +553,6 @@
 #endif
 
 
-/* Define if your assembler supports LWSYNC instructions. */
-#ifndef USED_FOR_TARGET
-/* #undef HAVE_AS_LWSYNC */
-#endif
-
-
 /* Define if your assembler supports the -mabi option. */
 #ifndef USED_FOR_TARGET
 /* #undef HAVE_AS_MABI_OPTION */
@@ -571,12 +571,6 @@
 #endif
 
 
-/* Define if your assembler supports mffgpr and mftgpr. */
-#ifndef USED_FOR_TARGET
-/* #undef HAVE_AS_MFPGPR */
-#endif
-
-
 /* Define if your Mac OS X assembler supports the -mmacos-version-min option.
    */
 #ifndef USED_FOR_TARGET
@@ -584,9 +578,21 @@
 #endif
 
 
+/* Define if your assembler supports .mspabi_attribute. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_AS_MSPABI_ATTRIBUTE */
+#endif
+
+
 /* Define if the assembler understands -mnan=. */
 #ifndef USED_FOR_TARGET
 /* #undef HAVE_AS_NAN */
+#endif
+
+
+/* Define if your assembler supports %gotoff relocation syntax. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_AS_NIOS2_GOTOFF_RELOCATION */
 #endif
 
 
@@ -608,39 +614,15 @@
 #endif
 
 
-/* Define if your assembler supports popcntb field. */
+/* Define if your assembler supports R_PPC*_PLTSEQ relocations. */
 #ifndef USED_FOR_TARGET
-/* #undef HAVE_AS_POPCNTB */
-#endif
-
-
-/* Define if your assembler supports POPCNTD instructions. */
-#ifndef USED_FOR_TARGET
-/* #undef HAVE_AS_POPCNTD */
-#endif
-
-
-/* Define if your assembler supports POWER8 instructions. */
-#ifndef USED_FOR_TARGET
-/* #undef HAVE_AS_POWER8 */
-#endif
-
-
-/* Define if your assembler supports POWER9 instructions. */
-#ifndef USED_FOR_TARGET
-/* #undef HAVE_AS_POWER9 */
+/* #undef HAVE_AS_PLTSEQ */
 #endif
 
 
 /* Define if your assembler supports .ref */
 #ifndef USED_FOR_TARGET
 /* #undef HAVE_AS_REF */
-#endif
-
-
-/* Define if your assembler supports .register. */
-#ifndef USED_FOR_TARGET
-/* #undef HAVE_AS_REGISTER_PSEUDO_OP */
 #endif
 
 
@@ -653,6 +635,12 @@
 /* Define if your assembler supports -relax option. */
 #ifndef USED_FOR_TARGET
 /* #undef HAVE_AS_RELAX_OPTION */
+#endif
+
+
+/* Define if your assembler supports .attribute. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_AS_RISCV_ATTRIBUTE */
 #endif
 
 
@@ -712,9 +700,17 @@
 #endif
 
 
-/* Define if your assembler supports arg info for __tls_get_addr. */
+/* Define if your assembler supports vl/vst/vlm/vstm with an optional
+   alignment hint argument. */
 #ifndef USED_FOR_TARGET
-/* #undef HAVE_AS_TLS_MARKERS */
+/* #undef HAVE_AS_VECTOR_LOADSTORE_ALIGNMENT_HINTS */
+#endif
+
+
+/* Define if your assembler supports vl/vst/vlm/vstm with an optional
+   alignment hint argument on z13. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_AS_VECTOR_LOADSTORE_ALIGNMENT_HINTS_ON_Z13 */
 #endif
 
 
@@ -991,6 +987,13 @@
    */
 #ifndef USED_FOR_TARGET
 #define HAVE_DECL_MADVISE 1
+#endif
+
+
+/* Define to 1 if we found a declaration for 'mallinfo', otherwise define to
+   0. */
+#ifndef USED_FOR_TARGET
+#define HAVE_DECL_MALLINFO 0
 #endif
 
 
@@ -1298,6 +1301,12 @@
 #endif
 
 
+/* Define if your assembler supports the .loc is_stmt sub-directive. */
+#ifndef USED_FOR_TARGET
+#define HAVE_GAS_LOC_STMT 1
+#endif
+
+
 /* Define if your assembler supports specifying the maximum number of bytes to
    skip when using the GAS .p2align command. */
 #ifndef USED_FOR_TARGET
@@ -1324,9 +1333,9 @@
 #endif
 
 
-/* Define if your assembler supports specifying the section flag e. */
+/* Define if your assembler supports specifying the exclude section flag. */
 #ifndef USED_FOR_TARGET
-/* #undef HAVE_GAS_SECTION_EXCLUDE */
+#define HAVE_GAS_SECTION_EXCLUDE 1
 #endif
 
 
@@ -1419,7 +1428,7 @@
 
 /* Define to 1 if you have the <iconv.h> header file. */
 #ifndef USED_FOR_TARGET
-/* #undef HAVE_ICONV_H */
+#define HAVE_ICONV_H 1
 #endif
 
 
@@ -1475,6 +1484,13 @@
 /* Define to 1 if you have the <ldfcn.h> header file. */
 #ifndef USED_FOR_TARGET
 /* #undef HAVE_LDFCN_H */
+#endif
+
+
+/* Define 0/1 if your linker supports the SHF_MERGE flag with section
+   alignment > 1. */
+#ifndef USED_FOR_TARGET
+#define HAVE_LD_ALIGNED_SHF_MERGE 1
 #endif
 
 
@@ -1650,6 +1666,12 @@
 #endif
 
 
+/* Define to 1 if you have the `mallinfo' function. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_MALLINFO */
+#endif
+
+
 /* Define to 1 if you have the <malloc.h> header file. */
 #ifndef USED_FOR_TARGET
 /* #undef HAVE_MALLOC_H */
@@ -1695,6 +1717,13 @@
 /* Define if read-only mmap of a plain file works. */
 #ifndef USED_FOR_TARGET
 #define HAVE_MMAP_FILE 1
+#endif
+
+
+/* Define if GCC has been configured with --enable-newlib-nano-formatted-io.
+   */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_NEWLIB_NANO_FORMATTED_IO */
 #endif
 
 
@@ -1955,9 +1984,15 @@
 #endif
 
 
+/* Define if you have a working <zstd.h> header file. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_ZSTD_H */
+#endif
+
+
 /* Define if isl is in use. */
 #ifndef USED_FOR_TARGET
-/* #undef HAVE_isl */
+#define HAVE_isl 1
 #endif
 
 
@@ -1993,7 +2028,7 @@
 
 /* Define to the linker option to ignore unused dependencies. */
 #ifndef USED_FOR_TARGET
-#define LD_AS_NEEDED_OPTION "--as-needed"
+#define LD_AS_NEEDED_OPTION "--push-state --as-needed"
 #endif
 
 
@@ -2011,7 +2046,7 @@
 
 /* Define to the linker option to keep unused dependencies. */
 #ifndef USED_FOR_TARGET
-#define LD_NO_AS_NEEDED_OPTION "--no-as-needed"
+#define LD_NO_AS_NEEDED_OPTION "--pop-state"
 #endif
 
 
@@ -2038,6 +2073,12 @@
    */
 #ifndef USED_FOR_TARGET
 #define LT_OBJDIR ".libs/"
+#endif
+
+
+/* Define if we should link mingw executables with --large-address-aware */
+#ifndef USED_FOR_TARGET
+/* #undef MINGW_DEFAULT_LARGE_ADDR_AWARE */
 #endif
 
 
@@ -2176,6 +2217,12 @@
 #endif
 
 
+/* Define if your target C Library properly handles PT_GNU_STACK */
+#ifndef USED_FOR_TARGET
+/* #undef TARGET_LIBC_GNUSTACK */
+#endif
+
+
 /* Define if your target C Library provides the AT_HWCAP value in the TCB */
 #ifndef USED_FOR_TARGET
 /* #undef TARGET_LIBC_PROVIDES_HWCAP_IN_TCB */
@@ -2274,6 +2321,11 @@
 # ifndef WORDS_BIGENDIAN
 /* #  undef WORDS_BIGENDIAN */
 # endif
+#endif
+
+/* Enable large inode numbers on Mac OS X 10.5.  */
+#ifndef _DARWIN_USE_64_BIT_INODE
+# define _DARWIN_USE_64_BIT_INODE 1
 #endif
 
 /* Number of bits in a file offset, on hosts where this is settable. */

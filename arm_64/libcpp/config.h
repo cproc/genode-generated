@@ -23,7 +23,7 @@
 
 /* Define to 1 if translation of program messages to the user's native
    language is requested. */
-/* #undef ENABLE_NLS 1 */
+/* #undef ENABLE_NLS */
 
 /* Define to get calls to the valgrind runtime enabled. */
 /* #undef ENABLE_VALGRIND_ANNOTATIONS */
@@ -52,7 +52,7 @@
 
 /* Define to 1 if you have the declaration of `basename(char *)', and to 0 if
    you don't. */
-#define HAVE_DECL_BASENAME 1
+#define HAVE_DECL_BASENAME 0
 
 /* Define to 1 if you have the declaration of `clearerr_unlocked', and to 0 if
    you don't. */
@@ -72,15 +72,15 @@
 
 /* Define to 1 if you have the declaration of `fflush_unlocked', and to 0 if
    you don't. */
-#define HAVE_DECL_FFLUSH_UNLOCKED 1
+#define HAVE_DECL_FFLUSH_UNLOCKED 0
 
 /* Define to 1 if you have the declaration of `fgetc_unlocked', and to 0 if
    you don't. */
-#define HAVE_DECL_FGETC_UNLOCKED 1
+#define HAVE_DECL_FGETC_UNLOCKED 0
 
 /* Define to 1 if you have the declaration of `fgets_unlocked', and to 0 if
    you don't. */
-#define HAVE_DECL_FGETS_UNLOCKED 1
+#define HAVE_DECL_FGETS_UNLOCKED 0
 
 /* Define to 1 if you have the declaration of `fileno_unlocked', and to 0 if
    you don't. */
@@ -92,19 +92,19 @@
 
 /* Define to 1 if you have the declaration of `fputc_unlocked', and to 0 if
    you don't. */
-#define HAVE_DECL_FPUTC_UNLOCKED 1
+#define HAVE_DECL_FPUTC_UNLOCKED 0
 
 /* Define to 1 if you have the declaration of `fputs_unlocked', and to 0 if
    you don't. */
-#define HAVE_DECL_FPUTS_UNLOCKED 1
+#define HAVE_DECL_FPUTS_UNLOCKED 0
 
 /* Define to 1 if you have the declaration of `fread_unlocked', and to 0 if
    you don't. */
-#define HAVE_DECL_FREAD_UNLOCKED 1
+#define HAVE_DECL_FREAD_UNLOCKED 0
 
 /* Define to 1 if you have the declaration of `fwrite_unlocked', and to 0 if
    you don't. */
-#define HAVE_DECL_FWRITE_UNLOCKED 1
+#define HAVE_DECL_FWRITE_UNLOCKED 0
 
 /* Define to 1 if you have the declaration of `getchar_unlocked', and to 0 if
    you don't. */
@@ -140,13 +140,13 @@
 #define HAVE_FERROR_UNLOCKED 1
 
 /* Define to 1 if you have the `fflush_unlocked' function. */
-#define HAVE_FFLUSH_UNLOCKED 1
+/* #undef HAVE_FFLUSH_UNLOCKED */
 
 /* Define to 1 if you have the `fgetc_unlocked' function. */
-#define HAVE_FGETC_UNLOCKED 1
+/* #undef HAVE_FGETC_UNLOCKED */
 
 /* Define to 1 if you have the `fgets_unlocked' function. */
-#define HAVE_FGETS_UNLOCKED 1
+/* #undef HAVE_FGETS_UNLOCKED */
 
 /* Define to 1 if you have the `fileno_unlocked' function. */
 #define HAVE_FILENO_UNLOCKED 1
@@ -155,16 +155,16 @@
 /* #undef HAVE_FPRINTF_UNLOCKED */
 
 /* Define to 1 if you have the `fputc_unlocked' function. */
-#define HAVE_FPUTC_UNLOCKED 1
+/* #undef HAVE_FPUTC_UNLOCKED */
 
 /* Define to 1 if you have the `fputs_unlocked' function. */
 /* #undef HAVE_FPUTS_UNLOCKED */
 
 /* Define to 1 if you have the `fread_unlocked' function. */
-#define HAVE_FREAD_UNLOCKED 1
+/* #undef HAVE_FREAD_UNLOCKED */
 
 /* Define to 1 if you have the `fwrite_unlocked' function. */
-#define HAVE_FWRITE_UNLOCKED 1
+/* #undef HAVE_FWRITE_UNLOCKED */
 
 /* Define to 1 if you have the `getchar_unlocked' function. */
 #define HAVE_GETCHAR_UNLOCKED 1
@@ -173,7 +173,7 @@
 #define HAVE_GETC_UNLOCKED 1
 
 /* Define if you have the iconv() function. */
-#define HAVE_ICONV 1
+/* #undef HAVE_ICONV */
 
 /* Define to 1 if you have the <inttypes.h> header file. */
 #define HAVE_INTTYPES_H 1
@@ -191,7 +191,7 @@
 #define HAVE_MEMORY_H 1
 
 /* Define to 1 if libc includes obstacks. */
-#define HAVE_OBSTACK 1
+/* #undef HAVE_OBSTACK */
 
 /* Define to 1 if you have the `putchar_unlocked' function. */
 #define HAVE_PUTCHAR_UNLOCKED 1
@@ -236,7 +236,7 @@
 #define HAVE_UNISTD_H 1
 
 /* Define as const if the declaration of iconv() needs const. */
-#define ICONV_CONST 
+/* #undef ICONV_CONST */
 
 /* Define to the name of this package. */
 #define PACKAGE "cpplib"
@@ -317,6 +317,11 @@
 # ifndef WORDS_BIGENDIAN
 /* #  undef WORDS_BIGENDIAN */
 # endif
+#endif
+
+/* Enable large inode numbers on Mac OS X 10.5.  */
+#ifndef _DARWIN_USE_64_BIT_INODE
+# define _DARWIN_USE_64_BIT_INODE 1
 #endif
 
 /* Number of bits in a file offset, on hosts where this is settable. */

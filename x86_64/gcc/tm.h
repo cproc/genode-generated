@@ -12,6 +12,9 @@
 #ifndef LIBC_MUSL
 # define LIBC_MUSL 4
 #endif
+#ifndef USE_IX86_FRAME_POINTER
+# define USE_IX86_FRAME_POINTER 1
+#endif
 #ifdef IN_GCC
 # include "options.h"
 # include "insn-constants.h"

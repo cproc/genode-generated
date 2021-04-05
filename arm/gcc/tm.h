@@ -16,6 +16,7 @@
 #ifdef IN_GCC
 # include "options.h"
 # include "insn-constants.h"
+# include "config/vxworks-dummy.h"
 # include "config/dbxelf.h"
 # include "config/elfos.h"
 # include "config/arm/unknown-elf.h"
@@ -23,7 +24,6 @@
 # include "config/arm/bpabi.h"
 # include "config/newlib-stdint.h"
 # include "config/arm/aout.h"
-# include "config/vxworks-dummy.h"
 # include "config/arm/arm.h"
 # include "config/initfini-array.h"
 #endif

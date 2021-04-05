@@ -36,7 +36,7 @@
 #define HAVE_CALLOC 1
 
 /* Define to 1 if you have the `canonicalize_file_name' function. */
-#define HAVE_CANONICALIZE_FILE_NAME 1
+/* #undef HAVE_CANONICALIZE_FILE_NAME */
 
 /* Define to 1 if you have the `clock' function. */
 #define HAVE_CLOCK 1
@@ -47,7 +47,7 @@
 
 /* Define to 1 if you have the declaration of `basename(char *)', and to 0 if
    you don't. */
-#define HAVE_DECL_BASENAME 1
+#define HAVE_DECL_BASENAME 0
 
 /* Define to 1 if you have the declaration of `calloc', and to 0 if you don't.
    */
@@ -102,7 +102,7 @@
 
 /* Define to 1 if you have the declaration of `strverscmp', and to 0 if you
    don't. */
-#define HAVE_DECL_STRVERSCMP 1
+#define HAVE_DECL_STRVERSCMP 0
 
 /* Define to 1 if you have the declaration of `vasprintf', and to 0 if you
    don't. */
@@ -113,7 +113,7 @@
 #define HAVE_DECL_VSNPRINTF 1
 
 /* Define to 1 if you have the `dup3' function. */
-#define HAVE_DUP3 1
+/* #undef HAVE_DUP3 */
 
 /* Define to 1 if you have the <fcntl.h> header file. */
 #define HAVE_FCNTL_H 1
@@ -191,10 +191,13 @@
 #define HAVE_MKSTEMPS 1
 
 /* Define to 1 if you have a working `mmap' system call. */
-#define HAVE_MMAP 1
+/* #undef HAVE_MMAP */
 
 /* Define to 1 if you have the `on_exit' function. */
-#define HAVE_ON_EXIT 1
+/* #undef HAVE_ON_EXIT */
+
+/* Define to 1 if you have the `pipe2' function. */
+/* #undef HAVE_PIPE2 */
 
 /* Define to 1 if you have the <process.h> header file. */
 /* #undef HAVE_PROCESS_H */
@@ -314,7 +317,7 @@
 #define HAVE_STRTOULL 1
 
 /* Define to 1 if you have the `strverscmp' function. */
-#define HAVE_STRVERSCMP 1
+/* #undef HAVE_STRVERSCMP */
 
 /* Define to 1 if you have the `sysconf' function. */
 #define HAVE_SYSCONF 1
@@ -341,7 +344,7 @@
 #define HAVE_SYS_PARAM_H 1
 
 /* Define to 1 if you have the <sys/prctl.h> header file. */
-#define HAVE_SYS_PRCTL_H 1
+/* #undef HAVE_SYS_PRCTL_H */
 
 /* Define to 1 if you have the <sys/pstat.h> header file. */
 /* #undef HAVE_SYS_PSTAT_H */
@@ -359,7 +362,7 @@
 #define HAVE_SYS_SYSCTL_H 1
 
 /* Define to 1 if you have the <sys/sysinfo.h> header file. */
-#define HAVE_SYS_SYSINFO_H 1
+/* #undef HAVE_SYS_SYSINFO_H */
 
 /* Define to 1 if you have the <sys/sysmp.h> header file. */
 /* #undef HAVE_SYS_SYSMP_H */
@@ -419,7 +422,7 @@
 #define HAVE_WAIT3 1
 
 /* Define to 1 if you have the `wait4' function. */
-#define HAVE_WAIT4 1
+/* #undef HAVE_WAIT4 */
 
 /* Define to 1 if you have the `waitpid' function. */
 #define HAVE_WAITPID 1
@@ -437,10 +440,10 @@
 /* #undef HAVE__SYSTEM_CONFIGURATION */
 
 /* Define to 1 if you have the `__fsetlocking' function. */
-#define HAVE___FSETLOCKING 1
+/* #undef HAVE___FSETLOCKING */
 
 /* Define if canonicalize_file_name is not declared in system header files. */
-/* #undef NEED_DECLARATION_CANONICALIZE_FILE_NAME */
+#define NEED_DECLARATION_CANONICALIZE_FILE_NAME 1
 
 /* Define if errno must be declared even when <errno.h> is included. */
 /* #undef NEED_DECLARATION_ERRNO */
@@ -482,7 +485,7 @@
    it will be automatically deduced at run-time. STACK_DIRECTION > 0 => grows
    toward higher addresses STACK_DIRECTION < 0 => grows toward lower addresses
    STACK_DIRECTION = 0 => direction of growth unknown */
-#define STACK_DIRECTION -1
+#define STACK_DIRECTION 0
 
 /* Define to 1 if you have the ANSI C header files. */
 #define STDC_HEADERS 1
@@ -525,6 +528,11 @@
 # ifndef WORDS_BIGENDIAN
 /* #  undef WORDS_BIGENDIAN */
 # endif
+#endif
+
+/* Enable large inode numbers on Mac OS X 10.5.  */
+#ifndef _DARWIN_USE_64_BIT_INODE
+# define _DARWIN_USE_64_BIT_INODE 1
 #endif
 
 /* Number of bits in a file offset, on hosts where this is settable. */

@@ -21,6 +21,7 @@
 # include "config/elfos.h"
 # include "config/newlib-stdint.h"
 # include "config/aarch64/aarch64-elf.h"
+# include "config/aarch64/aarch64-errata.h"
 # include "config/aarch64/aarch64-elf-raw.h"
 # include "config/initfini-array.h"
 #endif

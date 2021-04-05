@@ -24,9 +24,12 @@ mode_size_inline (machine_mode mode)
     case E_CCFPmode: return 4;
     case E_CCFPEmode: return 4;
     case E_CC_SWPmode: return 4;
+    case E_CC_NZCmode: return 4;
     case E_CC_NZmode: return 4;
     case E_CC_Zmode: return 4;
     case E_CC_Cmode: return 4;
+    case E_CC_ADCmode: return 4;
+    case E_CC_Vmode: return 4;
     case E_BImode: return 1;
     case E_QImode: return 1;
     case E_HImode: return 2;
@@ -55,6 +58,7 @@ mode_size_inline (machine_mode mode)
     case E_UDAmode: return 8;
     case E_UTAmode: return 16;
     case E_HFmode: return 2;
+    case E_BFmode: return 2;
     case E_SFmode: return 4;
     case E_DFmode: return 8;
     case E_TFmode: return 16;
@@ -69,6 +73,7 @@ mode_size_inline (machine_mode mode)
     case E_COImode: return 64;
     case E_CCImode: return 96;
     case E_CXImode: return 128;
+    case E_BCmode: return 4;
     case E_HCmode: return 4;
     case E_SCmode: return 8;
     case E_DCmode: return 16;
@@ -85,12 +90,16 @@ mode_size_inline (machine_mode mode)
     case E_VNx4TImode: return 64;
     case E_VNx2OImode: return 64;
     case E_V2HFmode: return 4;
+    case E_V4BFmode: return 8;
     case E_V4HFmode: return 8;
     case E_V2SFmode: return 8;
     case E_V1DFmode: return 8;
+    case E_V8BFmode: return 16;
     case E_V8HFmode: return 16;
     case E_V4SFmode: return 16;
     case E_V2DFmode: return 16;
+    case E_VNx2BFmode: return 4;
+    case E_VNx4BFmode: return 8;
     default: return mode_size[mode];
     }
 }
@@ -112,9 +121,12 @@ mode_nunits_inline (machine_mode mode)
     case E_CCFPmode: return 1;
     case E_CCFPEmode: return 1;
     case E_CC_SWPmode: return 1;
+    case E_CC_NZCmode: return 1;
     case E_CC_NZmode: return 1;
     case E_CC_Zmode: return 1;
     case E_CC_Cmode: return 1;
+    case E_CC_ADCmode: return 1;
+    case E_CC_Vmode: return 1;
     case E_BImode: return 1;
     case E_QImode: return 1;
     case E_HImode: return 1;
@@ -143,6 +155,7 @@ mode_nunits_inline (machine_mode mode)
     case E_UDAmode: return 1;
     case E_UTAmode: return 1;
     case E_HFmode: return 1;
+    case E_BFmode: return 1;
     case E_SFmode: return 1;
     case E_DFmode: return 1;
     case E_TFmode: return 1;
@@ -157,6 +170,7 @@ mode_nunits_inline (machine_mode mode)
     case E_COImode: return 2;
     case E_CCImode: return 2;
     case E_CXImode: return 2;
+    case E_BCmode: return 2;
     case E_HCmode: return 2;
     case E_SCmode: return 2;
     case E_DCmode: return 2;
@@ -173,12 +187,16 @@ mode_nunits_inline (machine_mode mode)
     case E_VNx4TImode: return 4;
     case E_VNx2OImode: return 2;
     case E_V2HFmode: return 2;
+    case E_V4BFmode: return 4;
     case E_V4HFmode: return 4;
     case E_V2SFmode: return 2;
     case E_V1DFmode: return 1;
+    case E_V8BFmode: return 8;
     case E_V8HFmode: return 8;
     case E_V4SFmode: return 4;
     case E_V2DFmode: return 2;
+    case E_VNx2BFmode: return 2;
+    case E_VNx4BFmode: return 4;
     default: return mode_nunits[mode];
     }
 }
@@ -201,9 +219,12 @@ mode_inner_inline (machine_mode mode)
     case E_CCFPmode: return E_CCFPmode;
     case E_CCFPEmode: return E_CCFPEmode;
     case E_CC_SWPmode: return E_CC_SWPmode;
+    case E_CC_NZCmode: return E_CC_NZCmode;
     case E_CC_NZmode: return E_CC_NZmode;
     case E_CC_Zmode: return E_CC_Zmode;
     case E_CC_Cmode: return E_CC_Cmode;
+    case E_CC_ADCmode: return E_CC_ADCmode;
+    case E_CC_Vmode: return E_CC_Vmode;
     case E_BImode: return E_BImode;
     case E_QImode: return E_QImode;
     case E_HImode: return E_HImode;
@@ -232,6 +253,7 @@ mode_inner_inline (machine_mode mode)
     case E_UDAmode: return E_UDAmode;
     case E_UTAmode: return E_UTAmode;
     case E_HFmode: return E_HFmode;
+    case E_BFmode: return E_BFmode;
     case E_SFmode: return E_SFmode;
     case E_DFmode: return E_DFmode;
     case E_TFmode: return E_TFmode;
@@ -246,6 +268,7 @@ mode_inner_inline (machine_mode mode)
     case E_COImode: return E_OImode;
     case E_CCImode: return E_CImode;
     case E_CXImode: return E_XImode;
+    case E_BCmode: return E_BFmode;
     case E_HCmode: return E_HFmode;
     case E_SCmode: return E_SFmode;
     case E_DCmode: return E_DFmode;
@@ -281,25 +304,42 @@ mode_inner_inline (machine_mode mode)
     case E_VNx8DImode: return E_DImode;
     case E_VNx4TImode: return E_TImode;
     case E_VNx2OImode: return E_OImode;
+    case E_VNx2QImode: return E_QImode;
+    case E_VNx4QImode: return E_QImode;
+    case E_VNx2HImode: return E_HImode;
+    case E_VNx8QImode: return E_QImode;
+    case E_VNx4HImode: return E_HImode;
+    case E_VNx2SImode: return E_SImode;
     case E_V2HFmode: return E_HFmode;
+    case E_V4BFmode: return E_BFmode;
     case E_V4HFmode: return E_HFmode;
     case E_V2SFmode: return E_SFmode;
     case E_V1DFmode: return E_DFmode;
+    case E_V8BFmode: return E_BFmode;
     case E_V8HFmode: return E_HFmode;
+    case E_VNx8BFmode: return E_BFmode;
     case E_VNx8HFmode: return E_HFmode;
     case E_V4SFmode: return E_SFmode;
     case E_VNx4SFmode: return E_SFmode;
     case E_V2DFmode: return E_DFmode;
     case E_VNx2DFmode: return E_DFmode;
+    case E_VNx16BFmode: return E_BFmode;
     case E_VNx16HFmode: return E_HFmode;
     case E_VNx8SFmode: return E_SFmode;
     case E_VNx4DFmode: return E_DFmode;
+    case E_VNx24BFmode: return E_BFmode;
     case E_VNx24HFmode: return E_HFmode;
     case E_VNx12SFmode: return E_SFmode;
     case E_VNx6DFmode: return E_DFmode;
+    case E_VNx32BFmode: return E_BFmode;
     case E_VNx32HFmode: return E_HFmode;
     case E_VNx16SFmode: return E_SFmode;
     case E_VNx8DFmode: return E_DFmode;
+    case E_VNx2BFmode: return E_BFmode;
+    case E_VNx2HFmode: return E_HFmode;
+    case E_VNx4BFmode: return E_BFmode;
+    case E_VNx4HFmode: return E_HFmode;
+    case E_VNx2SFmode: return E_SFmode;
     default: return mode_inner[mode];
     }
 }
@@ -322,9 +362,12 @@ mode_unit_size_inline (machine_mode mode)
     case E_CCFPmode: return 4;
     case E_CCFPEmode: return 4;
     case E_CC_SWPmode: return 4;
+    case E_CC_NZCmode: return 4;
     case E_CC_NZmode: return 4;
     case E_CC_Zmode: return 4;
     case E_CC_Cmode: return 4;
+    case E_CC_ADCmode: return 4;
+    case E_CC_Vmode: return 4;
     case E_BImode: return 1;
     case E_QImode: return 1;
     case E_HImode: return 2;
@@ -353,6 +396,7 @@ mode_unit_size_inline (machine_mode mode)
     case E_UDAmode: return 8;
     case E_UTAmode: return 16;
     case E_HFmode: return 2;
+    case E_BFmode: return 2;
     case E_SFmode: return 4;
     case E_DFmode: return 8;
     case E_TFmode: return 16;
@@ -367,6 +411,7 @@ mode_unit_size_inline (machine_mode mode)
     case E_COImode: return 32;
     case E_CCImode: return 48;
     case E_CXImode: return 64;
+    case E_BCmode: return 2;
     case E_HCmode: return 2;
     case E_SCmode: return 4;
     case E_DCmode: return 8;
@@ -402,25 +447,42 @@ mode_unit_size_inline (machine_mode mode)
     case E_VNx8DImode: return 8;
     case E_VNx4TImode: return 16;
     case E_VNx2OImode: return 32;
+    case E_VNx2QImode: return 1;
+    case E_VNx4QImode: return 1;
+    case E_VNx2HImode: return 2;
+    case E_VNx8QImode: return 1;
+    case E_VNx4HImode: return 2;
+    case E_VNx2SImode: return 4;
     case E_V2HFmode: return 2;
+    case E_V4BFmode: return 2;
     case E_V4HFmode: return 2;
     case E_V2SFmode: return 4;
     case E_V1DFmode: return 8;
+    case E_V8BFmode: return 2;
     case E_V8HFmode: return 2;
+    case E_VNx8BFmode: return 2;
     case E_VNx8HFmode: return 2;
     case E_V4SFmode: return 4;
     case E_VNx4SFmode: return 4;
     case E_V2DFmode: return 8;
     case E_VNx2DFmode: return 8;
+    case E_VNx16BFmode: return 2;
     case E_VNx16HFmode: return 2;
     case E_VNx8SFmode: return 4;
     case E_VNx4DFmode: return 8;
+    case E_VNx24BFmode: return 2;
     case E_VNx24HFmode: return 2;
     case E_VNx12SFmode: return 4;
     case E_VNx6DFmode: return 8;
+    case E_VNx32BFmode: return 2;
     case E_VNx32HFmode: return 2;
     case E_VNx16SFmode: return 4;
     case E_VNx8DFmode: return 8;
+    case E_VNx2BFmode: return 2;
+    case E_VNx2HFmode: return 2;
+    case E_VNx4BFmode: return 2;
+    case E_VNx4HFmode: return 2;
+    case E_VNx2SFmode: return 4;
     default: return mode_unit_size[mode];
     }
 }
@@ -443,9 +505,12 @@ mode_unit_precision_inline (machine_mode mode)
     case E_CCFPmode: return 4*BITS_PER_UNIT;
     case E_CCFPEmode: return 4*BITS_PER_UNIT;
     case E_CC_SWPmode: return 4*BITS_PER_UNIT;
+    case E_CC_NZCmode: return 4*BITS_PER_UNIT;
     case E_CC_NZmode: return 4*BITS_PER_UNIT;
     case E_CC_Zmode: return 4*BITS_PER_UNIT;
     case E_CC_Cmode: return 4*BITS_PER_UNIT;
+    case E_CC_ADCmode: return 4*BITS_PER_UNIT;
+    case E_CC_Vmode: return 4*BITS_PER_UNIT;
     case E_BImode: return 1;
     case E_QImode: return 1*BITS_PER_UNIT;
     case E_HImode: return 2*BITS_PER_UNIT;
@@ -474,6 +539,7 @@ mode_unit_precision_inline (machine_mode mode)
     case E_UDAmode: return 8*BITS_PER_UNIT;
     case E_UTAmode: return 16*BITS_PER_UNIT;
     case E_HFmode: return 2*BITS_PER_UNIT;
+    case E_BFmode: return 2*BITS_PER_UNIT;
     case E_SFmode: return 4*BITS_PER_UNIT;
     case E_DFmode: return 8*BITS_PER_UNIT;
     case E_TFmode: return 16*BITS_PER_UNIT;
@@ -488,6 +554,7 @@ mode_unit_precision_inline (machine_mode mode)
     case E_COImode: return 32*BITS_PER_UNIT;
     case E_CCImode: return 48*BITS_PER_UNIT;
     case E_CXImode: return 64*BITS_PER_UNIT;
+    case E_BCmode: return 2*BITS_PER_UNIT;
     case E_HCmode: return 2*BITS_PER_UNIT;
     case E_SCmode: return 4*BITS_PER_UNIT;
     case E_DCmode: return 8*BITS_PER_UNIT;
@@ -523,25 +590,42 @@ mode_unit_precision_inline (machine_mode mode)
     case E_VNx8DImode: return 8*BITS_PER_UNIT;
     case E_VNx4TImode: return 16*BITS_PER_UNIT;
     case E_VNx2OImode: return 32*BITS_PER_UNIT;
+    case E_VNx2QImode: return 1*BITS_PER_UNIT;
+    case E_VNx4QImode: return 1*BITS_PER_UNIT;
+    case E_VNx2HImode: return 2*BITS_PER_UNIT;
+    case E_VNx8QImode: return 1*BITS_PER_UNIT;
+    case E_VNx4HImode: return 2*BITS_PER_UNIT;
+    case E_VNx2SImode: return 4*BITS_PER_UNIT;
     case E_V2HFmode: return 2*BITS_PER_UNIT;
+    case E_V4BFmode: return 2*BITS_PER_UNIT;
     case E_V4HFmode: return 2*BITS_PER_UNIT;
     case E_V2SFmode: return 4*BITS_PER_UNIT;
     case E_V1DFmode: return 8*BITS_PER_UNIT;
+    case E_V8BFmode: return 2*BITS_PER_UNIT;
     case E_V8HFmode: return 2*BITS_PER_UNIT;
+    case E_VNx8BFmode: return 2*BITS_PER_UNIT;
     case E_VNx8HFmode: return 2*BITS_PER_UNIT;
     case E_V4SFmode: return 4*BITS_PER_UNIT;
     case E_VNx4SFmode: return 4*BITS_PER_UNIT;
     case E_V2DFmode: return 8*BITS_PER_UNIT;
     case E_VNx2DFmode: return 8*BITS_PER_UNIT;
+    case E_VNx16BFmode: return 2*BITS_PER_UNIT;
     case E_VNx16HFmode: return 2*BITS_PER_UNIT;
     case E_VNx8SFmode: return 4*BITS_PER_UNIT;
     case E_VNx4DFmode: return 8*BITS_PER_UNIT;
+    case E_VNx24BFmode: return 2*BITS_PER_UNIT;
     case E_VNx24HFmode: return 2*BITS_PER_UNIT;
     case E_VNx12SFmode: return 4*BITS_PER_UNIT;
     case E_VNx6DFmode: return 8*BITS_PER_UNIT;
+    case E_VNx32BFmode: return 2*BITS_PER_UNIT;
     case E_VNx32HFmode: return 2*BITS_PER_UNIT;
     case E_VNx16SFmode: return 4*BITS_PER_UNIT;
     case E_VNx8DFmode: return 8*BITS_PER_UNIT;
+    case E_VNx2BFmode: return 2*BITS_PER_UNIT;
+    case E_VNx2HFmode: return 2*BITS_PER_UNIT;
+    case E_VNx4BFmode: return 2*BITS_PER_UNIT;
+    case E_VNx4HFmode: return 2*BITS_PER_UNIT;
+    case E_VNx2SFmode: return 4*BITS_PER_UNIT;
     default: return mode_unit_precision[mode];
     }
 }

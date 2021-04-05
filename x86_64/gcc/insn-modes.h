@@ -146,33 +146,40 @@ enum machine_mode
 #else
 #define TImode (scalar_int_mode ((scalar_int_mode::from_int) E_TImode))
 #endif
-  E_OImode,                /* config/i386/i386-modes.def:104 */
+  E_OImode,                /* config/i386/i386-modes.def:101 */
 #define HAVE_OImode
 #ifdef USE_ENUM_MODES
 #define OImode E_OImode
 #else
 #define OImode (scalar_int_mode ((scalar_int_mode::from_int) E_OImode))
 #endif
-  E_XImode,                /* config/i386/i386-modes.def:105 */
+  E_XImode,                /* config/i386/i386-modes.def:102 */
 #define HAVE_XImode
 #ifdef USE_ENUM_MODES
 #define XImode E_XImode
 #else
 #define XImode (scalar_int_mode ((scalar_int_mode::from_int) E_XImode))
 #endif
-  E_BND32mode,             /* config/i386/i386-modes.def:101 */
-#define HAVE_BND32mode
+  E_P2QImode,              /* config/i386/i386-modes.def:107 */
+#define HAVE_P2QImode
 #ifdef USE_ENUM_MODES
-#define BND32mode E_BND32mode
+#define P2QImode E_P2QImode
 #else
-#define BND32mode (scalar_mode ((scalar_mode::from_int) E_BND32mode))
+#define P2QImode (scalar_int_mode ((scalar_int_mode::from_int) E_P2QImode))
 #endif
-  E_BND64mode,             /* config/i386/i386-modes.def:102 */
-#define HAVE_BND64mode
+  E_P2HImode,              /* config/i386/i386-modes.def:108 */
+#define HAVE_P2HImode
 #ifdef USE_ENUM_MODES
-#define BND64mode E_BND64mode
+#define P2HImode E_P2HImode
 #else
-#define BND64mode (scalar_mode ((scalar_mode::from_int) E_BND64mode))
+#define P2HImode (scalar_int_mode ((scalar_int_mode::from_int) E_P2HImode))
+#endif
+  E_POImode,               /* config/i386/i386-modes.def:116 */
+#define HAVE_POImode
+#ifdef USE_ENUM_MODES
+#define POImode E_POImode
+#else
+#define POImode (scalar_int_mode ((scalar_int_mode::from_int) E_POImode))
 #endif
   E_QQmode,                /* machmode.def:234 */
 #define HAVE_QQmode
@@ -356,12 +363,26 @@ enum machine_mode
 #else
 #define CQImode (complex_mode ((complex_mode::from_int) E_CQImode))
 #endif
+  E_CP2QImode,             /* machmode.def:263 */
+#define HAVE_CP2QImode
+#ifdef USE_ENUM_MODES
+#define CP2QImode E_CP2QImode
+#else
+#define CP2QImode (complex_mode ((complex_mode::from_int) E_CP2QImode))
+#endif
   E_CHImode,               /* machmode.def:262 */
 #define HAVE_CHImode
 #ifdef USE_ENUM_MODES
 #define CHImode E_CHImode
 #else
 #define CHImode (complex_mode ((complex_mode::from_int) E_CHImode))
+#endif
+  E_CP2HImode,             /* machmode.def:263 */
+#define HAVE_CP2HImode
+#ifdef USE_ENUM_MODES
+#define CP2HImode E_CP2HImode
+#else
+#define CP2HImode (complex_mode ((complex_mode::from_int) E_CP2HImode))
 #endif
   E_CSImode,               /* machmode.def:262 */
 #define HAVE_CSImode
@@ -383,6 +404,13 @@ enum machine_mode
 #define CTImode E_CTImode
 #else
 #define CTImode (complex_mode ((complex_mode::from_int) E_CTImode))
+#endif
+  E_CPOImode,              /* machmode.def:263 */
+#define HAVE_CPOImode
+#ifdef USE_ENUM_MODES
+#define CPOImode E_CPOImode
+#else
+#define CPOImode (complex_mode ((complex_mode::from_int) E_CPOImode))
 #endif
   E_COImode,               /* machmode.def:262 */
 #define HAVE_COImode
@@ -766,11 +794,8 @@ enum machine_mode
   MIN_MODE_INT = E_QImode,
   MAX_MODE_INT = E_XImode,
 
-  MIN_MODE_PARTIAL_INT = E_VOIDmode,
-  MAX_MODE_PARTIAL_INT = E_VOIDmode,
-
-  MIN_MODE_POINTER_BOUNDS = E_BND32mode,
-  MAX_MODE_POINTER_BOUNDS = E_BND64mode,
+  MIN_MODE_PARTIAL_INT = E_P2QImode,
+  MAX_MODE_PARTIAL_INT = E_POImode,
 
   MIN_MODE_FRACT = E_QQmode,
   MAX_MODE_FRACT = E_TQmode,
@@ -829,7 +854,7 @@ enum machine_mode
 #define CONST_MODE_FBIT const
 
 #define BITS_PER_UNIT (8)
-#define MAX_BITSIZE_MODE_ANY_INT 128
+#define MAX_BITSIZE_MODE_ANY_INT 160
 #define MAX_BITSIZE_MODE_ANY_MODE (256*BITS_PER_UNIT)
 #define NUM_INT_N_ENTS 1
 #define NUM_POLY_INT_COEFFS 1
