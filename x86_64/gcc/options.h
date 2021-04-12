@@ -29,6 +29,18 @@ extern addr_space_t ix86_stack_protector_guard_reg;
 #define ix86_stack_protector_guard_reg global_options.x_ix86_stack_protector_guard_reg
 #endif
 #ifdef GENERATOR_FILE
+extern bool ix86_unsafe_math_optimizations;
+#else
+  bool x_ix86_unsafe_math_optimizations;
+#define ix86_unsafe_math_optimizations global_options.x_ix86_unsafe_math_optimizations
+#endif
+#ifdef GENERATOR_FILE
+extern enum excess_precision ix86_excess_precision;
+#else
+  enum excess_precision x_ix86_excess_precision;
+#define ix86_excess_precision global_options.x_ix86_excess_precision
+#endif
+#ifdef GENERATOR_FILE
 extern int recip_mask;
 #else
   int x_recip_mask;
@@ -7909,6 +7921,7 @@ struct GTY(()) cl_target_option
   const char *x_ix86_tune_string;
   HOST_WIDE_INT x_ix86_stack_protector_guard_offset;
   addr_space_t x_ix86_stack_protector_guard_reg;
+  bool x_ix86_unsafe_math_optimizations;
   /* - */ int x_target_flags;
   HOST_WIDE_INT x_ix86_isa_flags;
   HOST_WIDE_INT x_ix86_isa_flags2;
@@ -7923,6 +7936,7 @@ struct GTY(()) cl_target_option
   enum stack_protector_guard x_ix86_stack_protector_guard;
   enum stringop_alg x_ix86_stringop_alg;
   enum tls_dialect x_ix86_tls_dialect;
+  enum excess_precision x_ix86_excess_precision;
   int x_ix86_branch_cost;
   int x_ix86_dump_tunes;
   int x_ix86_force_align_arg_pointer;
@@ -9775,7 +9789,7 @@ enum opt_code
   OPT_fprofile_prefix_path_ = 1279,          /* -fprofile-prefix-path= */
   OPT_fprofile_reorder_functions = 1280,     /* -fprofile-reorder-functions */
   OPT_fprofile_report = 1281,                /* -fprofile-report */
-  OPT_fprofile_reproducible = 1282,          /* -fprofile-reproducible */
+  OPT_fprofile_reproducible_ = 1282,         /* -fprofile-reproducible= */
   OPT_fprofile_update_ = 1283,               /* -fprofile-update= */
   OPT_fprofile_use = 1284,                   /* -fprofile-use */
   OPT_fprofile_use_ = 1285,                  /* -fprofile-use= */
