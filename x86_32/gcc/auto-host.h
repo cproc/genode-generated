@@ -56,6 +56,12 @@
 #endif
 
 
+/* Define to enable the use of a default debug linker. */
+#ifndef USED_FOR_TARGET
+/* #undef DEFAULT_DSYMUTIL */
+#endif
+
+
 /* Define to enable the use of a default linker. */
 #ifndef USED_FOR_TARGET
 /* #undef DEFAULT_LINKER */
@@ -92,6 +98,12 @@
 /* Define to the root for documentation URLs. */
 #ifndef USED_FOR_TARGET
 #define DOCUMENTATION_ROOT_URL "https://gcc.gnu.org/onlinedocs/"
+#endif
+
+
+/* Define to the dsymutil version. */
+#ifndef USED_FOR_TARGET
+/* #undef DSYMUTIL_VERSION */
 #endif
 
 
@@ -182,12 +194,6 @@
 #endif
 
 
-/* Define this to enable support for generating HSAIL. */
-#ifndef USED_FOR_TARGET
-/* #undef ENABLE_HSA */
-#endif
-
-
 /* Define if gcc should always pass --build-id to linker. */
 #ifndef USED_FOR_TARGET
 /* #undef ENABLE_LD_BUILDID */
@@ -242,6 +248,16 @@
 
 /* Define if you want runtime assertions enabled. This is a cheap check. */
 #define ENABLE_RUNTIME_CHECKING 1
+
+/* Define to enable evaluating float expressions with double precision in
+   standards-compatible mode on s390 targets. */
+/* #undef ENABLE_S390_EXCESS_FLOAT_PRECISION */
+
+/* Define if the -stdlib= option should be enabled. */
+#ifndef USED_FOR_TARGET
+#define ENABLE_STDLIB_OPTION 0
+#endif
+
 
 /* Define if you want all operations on trees (the basic data structure of the
    front ends) to be checked for dynamic type safety at runtime. This is
@@ -306,6 +322,18 @@
 /* mcontext_t fields start with __ */
 #ifndef USED_FOR_TARGET
 /* #undef HAS_MCONTEXT_T_UNDERSCORES */
+#endif
+
+
+/* Define if AF_INET6 supported. */
+#ifndef USED_FOR_TARGET
+#define HAVE_AF_INET6 1
+#endif
+
+
+/* Define if AF_UNIX supported. */
+#ifndef USED_FOR_TARGET
+#define HAVE_AF_UNIX 1
 #endif
 
 
@@ -398,6 +426,12 @@
 /* Define if your assembler supports the --gdwarf2 option. */
 #ifndef USED_FOR_TARGET
 #define HAVE_AS_GDWARF2_DEBUG_FLAG 1
+#endif
+
+
+/* Define if your assembler supports the --gdwarf-5 option. */
+#ifndef USED_FOR_TARGET
+#define HAVE_AS_GDWARF_5_DEBUG_FLAG 1
 #endif
 
 
@@ -565,9 +599,28 @@
 #endif
 
 
+/* Define if the assembler understands -march=rv*_zifencei. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_AS_MARCH_ZIFENCEI */
+#endif
+
+
 /* Define if your assembler supports mfcr field. */
 #ifndef USED_FOR_TARGET
 /* #undef HAVE_AS_MFCRF */
+#endif
+
+
+/* Define if the assembler understands -misa-spec=. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_AS_MISA_SPEC */
+#endif
+
+
+/* Define if your Mac OS X assembler supports -mllvm -x86-pad-for-align=false.
+   */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_AS_MLLVM_X86_PAD_FOR_ALIGN */
 #endif
 
 
@@ -717,6 +770,13 @@
 /* Define if your assembler supports VSX instructions. */
 #ifndef USED_FOR_TARGET
 /* #undef HAVE_AS_VSX */
+#endif
+
+
+/* Define if your assembler supports --gdwarf-4/--gdwarf-5 even with compiler
+   generated .debug_line. */
+#ifndef USED_FOR_TARGET
+#define HAVE_AS_WORKING_DWARF_N_FLAG 1
 #endif
 
 
@@ -997,6 +1057,13 @@
 #endif
 
 
+/* Define to 1 if we found a declaration for 'mallinfo2', otherwise define to
+   0. */
+#ifndef USED_FOR_TARGET
+#define HAVE_DECL_MALLINFO2 0
+#endif
+
+
 /* Define to 1 if we found a declaration for 'malloc', otherwise define to 0.
    */
 #ifndef USED_FOR_TARGET
@@ -1240,6 +1307,12 @@
 #endif
 
 
+/* Define to 1 if you have the `fstatat' function. */
+#ifndef USED_FOR_TARGET
+#define HAVE_FSTATAT 1
+#endif
+
+
 /* Define to 1 if you have the <ftw.h> header file. */
 #ifndef USED_FOR_TARGET
 #define HAVE_FTW_H 1
@@ -1256,6 +1329,13 @@
    allocated using the GAS .comm command. */
 #ifndef USED_FOR_TARGET
 /* #undef HAVE_GAS_ALIGNED_COMM */
+#endif
+
+
+/* Define if your Arm assembler permits context-specific feature extensions.
+   */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_GAS_ARM_EXTENDED_ARCH */
 #endif
 
 
@@ -1339,6 +1419,19 @@
 #endif
 
 
+/* Define 0/1 if your assembler supports 'o' flag in .section directive. */
+#ifndef USED_FOR_TARGET
+#define HAVE_GAS_SECTION_LINK_ORDER 1
+#endif
+
+
+/* Define 0/1 if your assembler supports marking sections with SHF_GNU_RETAIN
+   flag. */
+#ifndef USED_FOR_TARGET
+#define HAVE_GAS_SHF_GNU_RETAIN 1
+#endif
+
+
 /* Define 0/1 if your assembler supports marking sections with SHF_MERGE flag.
    */
 #ifndef USED_FOR_TARGET
@@ -1362,6 +1455,72 @@
 /* Define if your assembler supports .weakref. */
 #ifndef USED_FOR_TARGET
 #define HAVE_GAS_WEAKREF 1
+#endif
+
+
+/* Define if your assembler has fixed global_load functions. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_GCN_ASM_GLOBAL_LOAD_FIXED */
+#endif
+
+
+/* Define if your assembler expects amdgcn_target gfx908+xnack syntax. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_GCN_ASM_V3_SYNTAX */
+#endif
+
+
+/* Define if your assembler expects amdgcn_target gfx908:xnack+ syntax. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_GCN_ASM_V4_SYNTAX */
+#endif
+
+
+/* Define if your assembler allows -mattr=+sramecc for fiji. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_GCN_SRAM_ECC_FIJI */
+#endif
+
+
+/* Define if your assembler allows -mattr=+sramecc for gfx900. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_GCN_SRAM_ECC_GFX900 */
+#endif
+
+
+/* Define if your assembler allows -mattr=+sramecc for gfx906. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_GCN_SRAM_ECC_GFX906 */
+#endif
+
+
+/* Define if your assembler allows -mattr=+sramecc for gfx908. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_GCN_SRAM_ECC_GFX908 */
+#endif
+
+
+/* Define if your assembler allows -mattr=+xnack for fiji. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_GCN_XNACK_FIJI */
+#endif
+
+
+/* Define if your assembler allows -mattr=+xnack for gfx900. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_GCN_XNACK_GFX900 */
+#endif
+
+
+/* Define if your assembler allows -mattr=+xnack for gfx906. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_GCN_XNACK_GFX906 */
+#endif
+
+
+/* Define if your assembler allows -mattr=+xnack for gfx908. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_GCN_XNACK_GFX908 */
 #endif
 
 
@@ -1514,6 +1673,12 @@
 #endif
 
 
+/* Define if the PE linker has broken DWARF 5 support. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_LD_BROKEN_PE_DWARF5 */
+#endif
+
+
 /* Define if your linker supports --build-id. */
 #ifndef USED_FOR_TARGET
 #define HAVE_LD_BUILDID 1
@@ -1578,6 +1743,12 @@
    into PC-relative form. */
 #ifndef USED_FOR_TARGET
 /* #undef HAVE_LD_PERSONALITY_RELAXATION */
+#endif
+
+
+/* Define if the PE linker supports --disable-dynamicbase option. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_LD_PE_DISABLE_DYNAMICBASE */
 #endif
 
 
@@ -1672,6 +1843,12 @@
 #endif
 
 
+/* Define to 1 if you have the `mallinfo2' function. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_MALLINFO2 */
+#endif
+
+
 /* Define to 1 if you have the <malloc.h> header file. */
 #ifndef USED_FOR_TARGET
 /* #undef HAVE_MALLOC_H */
@@ -1739,6 +1916,12 @@
 #endif
 
 
+/* Define to 1 if you have the `posix_fallocate' function. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_POSIX_FALLOCATE */
+#endif
+
+
 /* Define to 1 if you have the `putchar_unlocked' function. */
 #ifndef USED_FOR_TARGET
 #define HAVE_PUTCHAR_UNLOCKED 1
@@ -1760,6 +1943,12 @@
 /* Define to 1 if you have the `setrlimit' function. */
 #ifndef USED_FOR_TARGET
 #define HAVE_SETRLIMIT 1
+#endif
+
+
+/* Define if <sys/signal.h> defines sighandler_t */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_SIGHANDLER_T */
 #endif
 
 
@@ -1826,6 +2015,12 @@
 /* Define to 1 if you have the <sys/file.h> header file. */
 #ifndef USED_FOR_TARGET
 #define HAVE_SYS_FILE_H 1
+#endif
+
+
+/* Define to 1 if you have the <sys/locking.h> header file. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_SYS_LOCKING_H */
 #endif
 
 
@@ -2002,6 +2197,18 @@
 #endif
 
 
+/* Define if _LK_LOC supported by _locking. */
+#ifndef USED_FOR_TARGET
+/* #undef HOST_HAS_LK_LOCK */
+#endif
+
+
+/* Define if O_CLOEXEC supported by fcntl. */
+#ifndef USED_FOR_TARGET
+#define HOST_HAS_O_CLOEXEC 1
+#endif
+
+
 /* Define as const if the declaration of iconv() needs const. */
 #ifndef USED_FOR_TARGET
 /* #undef ICONV_CONST */
@@ -2017,6 +2224,12 @@
 /* Define to 1 if ld64 supports '-export_dynamic'. */
 #ifndef USED_FOR_TARGET
 /* #undef LD64_HAS_EXPORT_DYNAMIC */
+#endif
+
+
+/* Define to 1 if ld64 supports '-platform_version'. */
+#ifndef USED_FOR_TARGET
+/* #undef LD64_HAS_PLATFORM_VERSION */
 #endif
 
 
@@ -2094,6 +2307,12 @@
 #endif
 
 
+/* Define to 1 to if -foffload is defaulted */
+#ifndef USED_FOR_TARGET
+/* #undef OFFLOAD_DEFAULTED */
+#endif
+
+
 /* Define to offload targets, separated by commas. */
 #ifndef USED_FOR_TARGET
 #define OFFLOAD_TARGETS ""
@@ -2151,6 +2370,18 @@
 /* Define to PREFIX/include if cpp should also search that directory. */
 #ifndef USED_FOR_TARGET
 #define PREFIX_INCLUDE_DIR "//include"
+#endif
+
+
+/* The size of `dev_t', as computed by sizeof. */
+#ifndef USED_FOR_TARGET
+#define SIZEOF_DEV_T 8
+#endif
+
+
+/* The size of `ino_t', as computed by sizeof. */
+#ifndef USED_FOR_TARGET
+#define SIZEOF_INO_T 8
 #endif
 
 

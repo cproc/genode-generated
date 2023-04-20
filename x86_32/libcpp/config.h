@@ -259,6 +259,12 @@
 /* Define to the version of this package. */
 #define PACKAGE_VERSION " "
 
+/* The size of `dev_t', as computed by sizeof. */
+#define SIZEOF_DEV_T 8
+
+/* The size of `ino_t', as computed by sizeof. */
+#define SIZEOF_INO_T 8
+
 /* The size of `int', as computed by sizeof. */
 #define SIZEOF_INT 4
 

@@ -11,6 +11,9 @@
    */
 #define HAVE_AS_CFI_SECTIONS 1
 
+/* Define to 1 if the assembler supports LSE. */
+#define HAVE_AS_LSE 1
+
 /* Define to 1 if the target assembler supports thread-local storage. */
 /* #undef HAVE_CC_TLS */
 
@@ -43,6 +46,12 @@
 
 /* Define to 1 if you have the <string.h> header file. */
 /* #undef HAVE_STRING_H */
+
+/* Define to 1 if you have the <sys/auxv.h> header file. */
+/* #undef HAVE_SYS_AUXV_H */
+
+/* Define to 1 if you have the <sys/mman.h> header file. */
+/* #undef HAVE_SYS_MMAN_H */
 
 /* Define to 1 if you have the <sys/stat.h> header file. */
 /* #undef HAVE_SYS_STAT_H */
@@ -82,6 +91,11 @@
 
 /* Define to 1 if the target use emutls for thread-local storage. */
 #define USE_EMUTLS 1
+
+/* Enable large inode numbers on Mac OS X 10.5.  */
+#ifndef _DARWIN_USE_64_BIT_INODE
+# define _DARWIN_USE_64_BIT_INODE 1
+#endif
 
 /* Number of bits in a file offset, on hosts where this is settable. */
 /* #undef _FILE_OFFSET_BITS */
