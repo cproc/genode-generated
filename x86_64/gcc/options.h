@@ -35,6 +35,12 @@ extern bool ix86_unsafe_math_optimizations;
 #define ix86_unsafe_math_optimizations global_options.x_ix86_unsafe_math_optimizations
 #endif
 #ifdef GENERATOR_FILE
+extern enum calling_abi ix86_abi;
+#else
+  enum calling_abi x_ix86_abi;
+#define ix86_abi global_options.x_ix86_abi
+#endif
+#ifdef GENERATOR_FILE
 extern enum cmodel ix86_cmodel;
 #else
   enum cmodel x_ix86_cmodel;
@@ -7697,12 +7703,6 @@ extern int flag_lto_dump_list;
 #define flag_lto_dump_list global_options.x_flag_lto_dump_list
 #endif
 #ifdef GENERATOR_FILE
-extern enum calling_abi ix86_abi;
-#else
-  enum calling_abi x_ix86_abi;
-#define ix86_abi global_options.x_ix86_abi
-#endif
-#ifdef GENERATOR_FILE
 extern enum ix86_align_data ix86_align_data_type;
 #else
   enum ix86_align_data x_ix86_align_data_type;
@@ -8748,10 +8748,10 @@ struct GTY(()) cl_target_option
   const char *x_ix86_stack_protector_guard_symbol_str;
   enum prefer_vector_width x_ix86_store_max;
   enum asm_dialect x_ix86_asm_dialect;
-  enum calling_abi x_ix86_abi;
   enum stack_protector_guard x_ix86_stack_protector_guard;
   enum stringop_alg x_ix86_stringop_alg;
   enum tls_dialect x_ix86_tls_dialect;
+  enum calling_abi x_ix86_abi;
   enum cmodel x_ix86_cmodel;
   enum excess_precision x_ix86_excess_precision;
   enum ix86_veclibabi x_ix86_veclibabi_type;
@@ -8777,7 +8777,7 @@ struct GTY(()) cl_target_option
   unsigned char tune_defaulted;
   signed char x_flag_fentry;
   signed char x_ix86_needed;
-  /* 20 members */
+  /* 21 members */
   unsigned HOST_WIDE_INT explicit_mask[1];
   /* - */ int explicit_mask_target_flags;
   HOST_WIDE_INT explicit_mask_ix86_isa_flags;
