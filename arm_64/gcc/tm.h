@@ -12,12 +12,14 @@
 #ifndef LIBC_MUSL
 # define LIBC_MUSL 4
 #endif
+#ifndef HEAP_TRAMPOLINES_INIT
+# define HEAP_TRAMPOLINES_INIT 0
+#endif
 #ifdef IN_GCC
 # include "options.h"
 # include "insn-constants.h"
 # include "config/aarch64/biarchlp64.h"
 # include "config/aarch64/aarch64.h"
-# include "config/dbxelf.h"
 # include "config/elfos.h"
 # include "config/newlib-stdint.h"
 # include "config/aarch64/aarch64-elf.h"

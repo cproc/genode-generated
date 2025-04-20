@@ -2,7 +2,7 @@
    Generated automatically by parsecpu.awk from arm-cpus.in.
    Do not edit.
 
-   Copyright (C) 2011-2022 Free Software Foundation, Inc.
+   Copyright (C) 2011-2024 Free Software Foundation, Inc.
 
    This file is part of GCC.
 
@@ -30,6 +30,7 @@ enum isa_feature {
   isa_bit_dotprod,
   isa_bit_crc32,
   isa_bit_xscale,
+  isa_bit_pacbti,
   isa_bit_vfpv2,
   isa_bit_vfpv3,
   isa_bit_vfpv4,

@@ -50,6 +50,19 @@
 #endif
 
 
+/* Specify a runpath directory, additional to those provided by the compiler
+   */
+#ifndef USED_FOR_TARGET
+#define DARWIN_ADD_RPATH ""
+#endif
+
+
+/* Should add an extra runpath directory */
+#ifndef USED_FOR_TARGET
+#define DARWIN_DO_EXTRA_RPATH 0
+#endif
+
+
 /* Define to enable the use of a default assembler. */
 #ifndef USED_FOR_TARGET
 /* #undef DEFAULT_ASSEMBLER */
@@ -97,7 +110,7 @@
 
 /* Define to the root for documentation URLs. */
 #ifndef USED_FOR_TARGET
-#define DOCUMENTATION_ROOT_URL "https://gcc.gnu.org/onlinedocs/"
+#define DOCUMENTATION_ROOT_URL "https://gcc.gnu.org/onlinedocs/gcc-14.2.0/"
 #endif
 
 
@@ -209,6 +222,12 @@
 /* Define to enable LTO support. */
 #ifndef USED_FOR_TARGET
 #define ENABLE_LTO 1
+#endif
+
+
+/* If --with-multiarch option is used */
+#ifndef USED_FOR_TARGET
+#define ENABLE_MULTIARCH 1
 #endif
 
 
@@ -364,7 +383,13 @@
 /* Define to the level of your assembler's compressed debug section support.
    */
 #ifndef USED_FOR_TARGET
-#define HAVE_AS_COMPRESS_DEBUG 2
+#define HAVE_AS_COMPRESS_DEBUG 1
+#endif
+
+
+/* Define if your assembler supports conditional branch relaxation. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_AS_COND_BRANCH_RELAXATION */
 #endif
 
 
@@ -405,13 +430,19 @@
 #endif
 
 
+/* Define if your assembler supports eh_frame pcrel encoding. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_AS_EH_FRAME_PCREL_ENCODING_SUPPORT */
+#endif
+
+
 /* Define if your assembler supports the R_PPC64_ENTRY relocation. */
 #ifndef USED_FOR_TARGET
 /* #undef HAVE_AS_ENTRY_MARKERS */
 #endif
 
 
-/* Define if your assembler supports explicit relocations. */
+/* Define if your assembler supports explicit relocation. */
 #ifndef USED_FOR_TARGET
 /* #undef HAVE_AS_EXPLICIT_RELOCS */
 #endif
@@ -444,12 +475,6 @@
 /* Define true if the assembler supports '.long foo@GOTOFF'. */
 #ifndef USED_FOR_TARGET
 #define HAVE_AS_GOTOFF_IN_DATA 1
-#endif
-
-
-/* Define if your assembler supports the --gstabs option. */
-#ifndef USED_FOR_TARGET
-#define HAVE_AS_GSTABS_DEBUG_FLAG 1
 #endif
 
 
@@ -547,7 +572,7 @@
 /* Define 0/1 if your assembler and linker support calling ___tls_get_addr via
    GOT. */
 #ifndef USED_FOR_TARGET
-#define HAVE_AS_IX86_TLS_GET_ADDR_GOT 0
+#define HAVE_AS_IX86_TLS_GET_ADDR_GOT 1
 #endif
 
 
@@ -599,6 +624,12 @@
 #endif
 
 
+/* Define if your macOS assembler supports .build_version directives */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_AS_MACOS_BUILD_VERSION */
+#endif
+
+
 /* Define if the assembler understands -march=rv*_zifencei. */
 #ifndef USED_FOR_TARGET
 /* #undef HAVE_AS_MARCH_ZIFENCEI */
@@ -617,17 +648,21 @@
 #endif
 
 
-/* Define if your Mac OS X assembler supports -mllvm -x86-pad-for-align=false.
-   */
+/* Define if your macOS assembler supports -mllvm -x86-pad-for-align=false. */
 #ifndef USED_FOR_TARGET
 /* #undef HAVE_AS_MLLVM_X86_PAD_FOR_ALIGN */
 #endif
 
 
-/* Define if your Mac OS X assembler supports the -mmacos-version-min option.
-   */
+/* Define if your macOS assembler supports the -mmacos-version-min option. */
 #ifndef USED_FOR_TARGET
 /* #undef HAVE_AS_MMACOSX_VERSION_MIN_OPTION */
+#endif
+
+
+/* Define if your assembler supports -mrelax option. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_AS_MRELAX_OPTION */
 #endif
 
 
@@ -673,6 +708,12 @@
 #endif
 
 
+/* Define if your assembler supports htm insns on power10. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_AS_POWER10_HTM */
+#endif
+
+
 /* Define if your assembler supports .ref */
 #ifndef USED_FOR_TARGET
 /* #undef HAVE_AS_REF */
@@ -694,6 +735,13 @@
 /* Define if your assembler supports .attribute. */
 #ifndef USED_FOR_TARGET
 /* #undef HAVE_AS_RISCV_ATTRIBUTE */
+#endif
+
+
+/* Define 0/1 if your assembler and linker support R_X86_64_CODE_6_GOTTPOFF.
+   */
+#ifndef USED_FOR_TARGET
+#define HAVE_AS_R_X86_64_CODE_6_GOTTPOFF 1
 #endif
 
 
@@ -741,15 +789,21 @@
 #endif
 
 
-/* Define if your assembler supports .stabs. */
+/* Define if your assembler supports call36 relocation. */
 #ifndef USED_FOR_TARGET
-#define HAVE_AS_STABS_DIRECTIVE 1
+/* #undef HAVE_AS_SUPPORT_CALL36 */
 #endif
 
 
 /* Define if your assembler and linker support thread-local storage. */
 #ifndef USED_FOR_TARGET
 /* #undef HAVE_AS_TLS */
+#endif
+
+
+/* Define if your assembler supports tls le relocation. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_AS_TLS_LE_RELAXATION */
 #endif
 
 
@@ -792,6 +846,20 @@
 #endif
 
 
+/* Define to 1 if you have the Mac OS X function
+   CFLocaleCopyPreferredLanguages in the CoreFoundation framework. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_CFLOCALECOPYPREFERREDLANGUAGES */
+#endif
+
+
+/* Define to 1 if you have the Mac OS X function CFPreferencesCopyAppValue in
+   the CoreFoundation framework. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_CFPREFERENCESCOPYAPPVALUE */
+#endif
+
+
 /* Define to 1 if you have the `clearerr_unlocked' function. */
 #ifndef USED_FOR_TARGET
 #define HAVE_CLEARERR_UNLOCKED 1
@@ -813,6 +881,13 @@
 /* Define 0/1 if your assembler and linker support COMDAT groups. */
 #ifndef USED_FOR_TARGET
 #define HAVE_COMDAT_GROUP 1
+#endif
+
+
+/* Define if the GNU dcgettext() function is already present or preinstalled.
+   */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_DCGETTEXT */
 #endif
 
 
@@ -1271,6 +1346,12 @@
 #endif
 
 
+/* Define 0/1 if -fhardened is supported */
+#ifndef USED_FOR_TARGET
+#define HAVE_FHARDENED_SUPPORT 0
+#endif
+
+
 /* Define to 1 if you have the `fileno_unlocked' function. */
 #ifndef USED_FOR_TARGET
 #define HAVE_FILENO_UNLOCKED 1
@@ -1458,69 +1539,9 @@
 #endif
 
 
-/* Define if your assembler has fixed global_load functions. */
+/* Define to 1 if you have the `getauxval' function. */
 #ifndef USED_FOR_TARGET
-/* #undef HAVE_GCN_ASM_GLOBAL_LOAD_FIXED */
-#endif
-
-
-/* Define if your assembler expects amdgcn_target gfx908+xnack syntax. */
-#ifndef USED_FOR_TARGET
-/* #undef HAVE_GCN_ASM_V3_SYNTAX */
-#endif
-
-
-/* Define if your assembler expects amdgcn_target gfx908:xnack+ syntax. */
-#ifndef USED_FOR_TARGET
-/* #undef HAVE_GCN_ASM_V4_SYNTAX */
-#endif
-
-
-/* Define if your assembler allows -mattr=+sramecc for fiji. */
-#ifndef USED_FOR_TARGET
-/* #undef HAVE_GCN_SRAM_ECC_FIJI */
-#endif
-
-
-/* Define if your assembler allows -mattr=+sramecc for gfx900. */
-#ifndef USED_FOR_TARGET
-/* #undef HAVE_GCN_SRAM_ECC_GFX900 */
-#endif
-
-
-/* Define if your assembler allows -mattr=+sramecc for gfx906. */
-#ifndef USED_FOR_TARGET
-/* #undef HAVE_GCN_SRAM_ECC_GFX906 */
-#endif
-
-
-/* Define if your assembler allows -mattr=+sramecc for gfx908. */
-#ifndef USED_FOR_TARGET
-/* #undef HAVE_GCN_SRAM_ECC_GFX908 */
-#endif
-
-
-/* Define if your assembler allows -mattr=+xnack for fiji. */
-#ifndef USED_FOR_TARGET
-/* #undef HAVE_GCN_XNACK_FIJI */
-#endif
-
-
-/* Define if your assembler allows -mattr=+xnack for gfx900. */
-#ifndef USED_FOR_TARGET
-/* #undef HAVE_GCN_XNACK_GFX900 */
-#endif
-
-
-/* Define if your assembler allows -mattr=+xnack for gfx906. */
-#ifndef USED_FOR_TARGET
-/* #undef HAVE_GCN_XNACK_GFX906 */
-#endif
-
-
-/* Define if your assembler allows -mattr=+xnack for gfx908. */
-#ifndef USED_FOR_TARGET
-/* #undef HAVE_GCN_XNACK_GFX908 */
+/* #undef HAVE_GETAUXVAL */
 #endif
 
 
@@ -1545,6 +1566,12 @@
 /* Define to 1 if you have the `getrusage' function. */
 #ifndef USED_FOR_TARGET
 #define HAVE_GETRUSAGE 1
+#endif
+
+
+/* Define if the GNU gettext() function is already present or preinstalled. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_GETTEXT */
 #endif
 
 
@@ -1579,7 +1606,7 @@
 #endif
 
 
-/* Define if you have the iconv() function. */
+/* Define if you have the iconv() function and it works. */
 #ifndef USED_FOR_TARGET
 /* #undef HAVE_ICONV */
 #endif
@@ -1660,10 +1687,22 @@
 #endif
 
 
+/* Define if your linker supports emulation avrxmega2_flmap. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_LD_AVR_AVRXMEGA2_FLMAP */
+#endif
+
+
 /* Define if your default avr linker script for avrxmega3 leaves .rodata in
    flash. */
 #ifndef USED_FOR_TARGET
 /* #undef HAVE_LD_AVR_AVRXMEGA3_RODATA_IN_FLASH */
+#endif
+
+
+/* Define if your linker supports emulation avrxmega4_flmap. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_LD_AVR_AVRXMEGA4_FLMAP */
 #endif
 
 
@@ -1694,7 +1733,7 @@
 
 /* Define to the level of your linker's compressed debug section support. */
 #ifndef USED_FOR_TARGET
-#define HAVE_LD_COMPRESS_DEBUG 3
+#define HAVE_LD_COMPRESS_DEBUG 2
 #endif
 
 
@@ -1730,6 +1769,12 @@
 /* Define if your PowerPC64 linker supports a large TOC. */
 #ifndef USED_FOR_TARGET
 /* #undef HAVE_LD_LARGE_TOC */
+#endif
+
+
+/* Define 0/1 if your linker supports -z now */
+#ifndef USED_FOR_TARGET
+#define HAVE_LD_NOW_SUPPORT 1
 #endif
 
 
@@ -1773,6 +1818,12 @@
 /* Define if your linker supports --push-state/--pop-state */
 #ifndef USED_FOR_TARGET
 #define HAVE_LD_PUSHPOPSTATE_SUPPORT 1
+#endif
+
+
+/* Define 0/1 if your linker supports -z relro */
+#ifndef USED_FOR_TARGET
+#define HAVE_LD_RELRO_SUPPORT 1
 #endif
 
 
@@ -1858,12 +1909,6 @@
 /* Define to 1 if you have the `mbstowcs' function. */
 #ifndef USED_FOR_TARGET
 #define HAVE_MBSTOWCS 1
-#endif
-
-
-/* Define if valgrind's memcheck.h header is installed. */
-#ifndef USED_FOR_TARGET
-/* #undef HAVE_MEMCHECK_H */
 #endif
 
 
@@ -2012,6 +2057,12 @@
 #endif
 
 
+/* Define to 1 if you have the <sys/auxv.h> header file. */
+#ifndef USED_FOR_TARGET
+#define HAVE_SYS_AUXV_H 1
+#endif
+
+
 /* Define to 1 if you have the <sys/file.h> header file. */
 #ifndef USED_FOR_TARGET
 #define HAVE_SYS_FILE_H 1
@@ -2123,12 +2174,6 @@
 #endif
 
 
-/* Define if valgrind's valgrind/memcheck.h header is installed. */
-#ifndef USED_FOR_TARGET
-/* #undef HAVE_VALGRIND_MEMCHECK_H */
-#endif
-
-
 /* Define to 1 if you have the `vfork' function. */
 #ifndef USED_FOR_TARGET
 #define HAVE_VFORK 1
@@ -2209,15 +2254,33 @@
 #endif
 
 
+/* Define if O_NONBLOCK supported by fcntl. */
+#ifndef USED_FOR_TARGET
+#define HOST_HAS_O_NONBLOCK 1
+#endif
+
+
+/* Define which stat syscall is able to handle 64bit indodes. */
+#ifndef USED_FOR_TARGET
+/* #undef HOST_STAT_FOR_64BIT_INODES */
+#endif
+
+
 /* Define as const if the declaration of iconv() needs const. */
 #ifndef USED_FOR_TARGET
-/* #undef ICONV_CONST */
+#define ICONV_CONST 
 #endif
 
 
 /* Define if int64_t uses long as underlying type. */
 #ifndef USED_FOR_TARGET
 #define INT64_T_IS_LONG 1
+#endif
+
+
+/* Define to 1 if ld64 supports '-demangle'. */
+#ifndef USED_FOR_TARGET
+/* #undef LD64_HAS_DEMANGLE */
 #endif
 
 
@@ -2298,6 +2361,12 @@
 /* Value to set mingw's _dowildcard to. */
 #ifndef USED_FOR_TARGET
 /* #undef MINGW_DOWILDCARD */
+#endif
+
+
+/* Define if assembler supports %reloc. */
+#ifndef USED_FOR_TARGET
+/* #undef MIPS_EXPLICIT_RELOCS */
 #endif
 
 

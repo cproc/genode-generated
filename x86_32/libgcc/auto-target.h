@@ -14,6 +14,9 @@
 /* Define to 1 if the assembler supports LSE. */
 /* #undef HAVE_AS_LSE */
 
+/* Define to 1 if the assembler supports .variant_pcs. */
+/* #undef HAVE_AS_VARIANT_PCS */
+
 /* Define to 1 if the target assembler supports thread-local storage. */
 /* #undef HAVE_CC_TLS */
 
@@ -62,6 +65,9 @@
 /* Define to 1 if you have the <unistd.h> header file. */
 /* #undef HAVE_UNISTD_H */
 
+/* Define to 1 if __getauxval is available. */
+/* #undef HAVE___GETAUXVAL */
+
 /* Define to the address where bug reports for this package should be sent. */
 #define PACKAGE_BUGREPORT ""
 
@@ -84,7 +90,7 @@
 #define SIZEOF_DOUBLE 8
 
 /* The size of `long double', as computed by sizeof. */
-#define SIZEOF_LONG_DOUBLE 16
+#define SIZEOF_LONG_DOUBLE 12
 
 /* Define to 1 if you have the ANSI C header files. */
 /* #undef STDC_HEADERS */

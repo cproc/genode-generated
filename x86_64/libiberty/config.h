@@ -199,6 +199,12 @@
 /* Define to 1 if you have the `pipe2' function. */
 #define HAVE_PIPE2 1
 
+/* Define to 1 if you have the `posix_spawn' function. */
+#define HAVE_POSIX_SPAWN 1
+
+/* Define to 1 if you have the `posix_spawnp' function. */
+#define HAVE_POSIX_SPAWNP 1
+
 /* Define to 1 if you have the <process.h> header file. */
 /* #undef HAVE_PROCESS_H */
 
@@ -249,6 +255,9 @@
 
 /* Define to 1 if you have the `spawnvpe' function. */
 /* #undef HAVE_SPAWNVPE */
+
+/* Define to 1 if you have the <spawn.h> header file. */
+#define HAVE_SPAWN_H 1
 
 /* Define to 1 if you have the <stdint.h> header file. */
 #define HAVE_STDINT_H 1
@@ -432,6 +441,9 @@
 
 /* Define to 1 if `vfork' works. */
 #define HAVE_WORKING_VFORK 1
+
+/* Define if you have x86 SHA1 HW acceleration support. */
+#define HAVE_X86_SHA1_HW_SUPPORT 1
 
 /* Define to 1 if you have the `_doprnt' function. */
 /* #undef HAVE__DOPRNT */

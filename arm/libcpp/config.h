@@ -25,12 +25,9 @@
    language is requested. */
 /* #undef ENABLE_NLS */
 
-/* Define to get calls to the valgrind runtime enabled. */
-/* #undef ENABLE_VALGRIND_ANNOTATIONS */
-
-/* Define if you want to workaround valgrind (a memory checker) warnings about
-   possible memory leaks because of libcpp use of interior pointers. */
-/* #undef ENABLE_VALGRIND_CHECKING */
+/* Define if you want to workaround Valgrind warnings about possible memory
+   leaks because of libcpp use of interior pointers. */
+/* #undef ENABLE_VALGRIND_WORKAROUNDS */
 
 /* Define to 1 if you have `alloca', as a function or macro. */
 #define HAVE_ALLOCA 1
@@ -39,8 +36,20 @@
    */
 /* #undef HAVE_ALLOCA_H */
 
+/* Define to 1 if you have the Mac OS X function
+   CFLocaleCopyPreferredLanguages in the CoreFoundation framework. */
+/* #undef HAVE_CFLOCALECOPYPREFERREDLANGUAGES */
+
+/* Define to 1 if you have the Mac OS X function CFPreferencesCopyAppValue in
+   the CoreFoundation framework. */
+/* #undef HAVE_CFPREFERENCESCOPYAPPVALUE */
+
 /* Define to 1 if you have the `clearerr_unlocked' function. */
 #define HAVE_CLEARERR_UNLOCKED 1
+
+/* Define if the GNU dcgettext() function is already present or preinstalled.
+   */
+/* #undef HAVE_DCGETTEXT */
 
 /* Define to 1 if you have the declaration of `abort', and to 0 if you don't.
    */
@@ -172,7 +181,10 @@
 /* Define to 1 if you have the `getc_unlocked' function. */
 #define HAVE_GETC_UNLOCKED 1
 
-/* Define if you have the iconv() function. */
+/* Define if the GNU gettext() function is already present or preinstalled. */
+/* #undef HAVE_GETTEXT */
+
+/* Define if you have the iconv() function and it works. */
 /* #undef HAVE_ICONV */
 
 /* Define to 1 if you have the <inttypes.h> header file. */
@@ -236,7 +248,7 @@
 #define HAVE_UNISTD_H 1
 
 /* Define as const if the declaration of iconv() needs const. */
-/* #undef ICONV_CONST */
+#define ICONV_CONST 
 
 /* Define to the name of this package. */
 #define PACKAGE "cpplib"

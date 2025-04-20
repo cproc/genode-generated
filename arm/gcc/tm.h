@@ -13,11 +13,13 @@
 #ifndef LIBC_MUSL
 # define LIBC_MUSL 4
 #endif
+#ifndef HEAP_TRAMPOLINES_INIT
+# define HEAP_TRAMPOLINES_INIT 0
+#endif
 #ifdef IN_GCC
 # include "options.h"
 # include "insn-constants.h"
 # include "config/vxworks-dummy.h"
-# include "config/dbxelf.h"
 # include "config/elfos.h"
 # include "config/arm/unknown-elf.h"
 # include "config/arm/elf.h"

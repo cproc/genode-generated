@@ -2,7 +2,7 @@
    Generated automatically by parsecpu.awk from arm-cpus.in.
    Do not edit.
 
-   Copyright (C) 2011-2022 Free Software Foundation, Inc.
+   Copyright (C) 2011-2024 Free Software Foundation, Inc.
 
    This file is part of GCC.
 
@@ -99,6 +99,7 @@ enum processor_type
   TARGET_CPU_cortexa78c,
   TARGET_CPU_cortexa710,
   TARGET_CPU_cortexx1,
+  TARGET_CPU_cortexx1c,
   TARGET_CPU_neoversen1,
   TARGET_CPU_cortexa75cortexa55,
   TARGET_CPU_cortexa76cortexa55,
@@ -107,7 +108,10 @@ enum processor_type
   TARGET_CPU_cortexm23,
   TARGET_CPU_cortexm33,
   TARGET_CPU_cortexm35p,
+  TARGET_CPU_cortexm52,
   TARGET_CPU_cortexm55,
+  TARGET_CPU_starmc1,
+  TARGET_CPU_cortexm85,
   TARGET_CPU_cortexr52,
   TARGET_CPU_cortexr52plus,
   TARGET_CPU_arm_none

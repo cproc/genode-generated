@@ -14,7 +14,7 @@ extern __inline__ __attribute__((__always_inline__, __gnu_inline__))
 poly_uint16
 mode_size_inline (machine_mode mode)
 {
-  extern const poly_uint16_pod mode_size[NUM_MACHINE_MODES];
+  extern const poly_uint16 mode_size[NUM_MACHINE_MODES];
   gcc_assert (mode >= 0 && mode < NUM_MACHINE_MODES);
   switch (mode)
     {
@@ -96,6 +96,7 @@ mode_size_inline (machine_mode mode)
     case E_V16BImode: return 2;
     case E_V8BImode: return 2;
     case E_V4BImode: return 2;
+    case E_V2QImode: return 2;
     case E_V4QImode: return 4;
     case E_V2HImode: return 4;
     case E_V8QImode: return 8;
@@ -132,7 +133,7 @@ extern __inline__ __attribute__((__always_inline__, __gnu_inline__))
 poly_uint16
 mode_nunits_inline (machine_mode mode)
 {
-  extern const poly_uint16_pod mode_nunits[NUM_MACHINE_MODES];
+  extern const poly_uint16 mode_nunits[NUM_MACHINE_MODES];
   switch (mode)
     {
     case E_VOIDmode: return 0;
@@ -213,6 +214,7 @@ mode_nunits_inline (machine_mode mode)
     case E_V16BImode: return 16;
     case E_V8BImode: return 8;
     case E_V4BImode: return 4;
+    case E_V2QImode: return 2;
     case E_V4QImode: return 4;
     case E_V2HImode: return 2;
     case E_V8QImode: return 8;
@@ -246,10 +248,10 @@ inline __attribute__((__always_inline__))
 #else
 extern __inline__ __attribute__((__always_inline__, __gnu_inline__))
 #endif
-unsigned char
+unsigned short
 mode_inner_inline (machine_mode mode)
 {
-  extern const unsigned char mode_inner[NUM_MACHINE_MODES];
+  extern const unsigned short mode_inner[NUM_MACHINE_MODES];
   gcc_assert (mode >= 0 && mode < NUM_MACHINE_MODES);
   switch (mode)
     {
@@ -331,6 +333,7 @@ mode_inner_inline (machine_mode mode)
     case E_V16BImode: return E_BImode;
     case E_V8BImode: return E_B2Imode;
     case E_V4BImode: return E_B4Imode;
+    case E_V2QImode: return E_QImode;
     case E_V4QImode: return E_QImode;
     case E_V2HImode: return E_HImode;
     case E_V8QImode: return E_QImode;
@@ -449,6 +452,7 @@ mode_unit_size_inline (machine_mode mode)
     case E_V16BImode: return 1;
     case E_V8BImode: return 1;
     case E_V4BImode: return 1;
+    case E_V2QImode: return 1;
     case E_V4QImode: return 1;
     case E_V2HImode: return 2;
     case E_V8QImode: return 1;
@@ -567,6 +571,7 @@ mode_unit_precision_inline (machine_mode mode)
     case E_V16BImode: return 1;
     case E_V8BImode: return 2;
     case E_V4BImode: return 4;
+    case E_V2QImode: return 1*BITS_PER_UNIT;
     case E_V4QImode: return 1*BITS_PER_UNIT;
     case E_V2HImode: return 2*BITS_PER_UNIT;
     case E_V8QImode: return 1*BITS_PER_UNIT;

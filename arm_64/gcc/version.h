@@ -3,13 +3,13 @@
 
 /* Generated automatically by genversion.  */
 
-#define GCC_major_version 12
+#define GCC_major_version 14
 
 /* The complete version string, assembled from several pieces.
 BASEVER, DATESTAMP, DEVPHASE, and REVISION are defined by the
 Makefile.  */
 
-#define version_string "12.3.0"
+#define version_string "14.2.0"
 #define pkgversion_string "(GCC) "
 
 /* This is the location of the online document giving instructions for
@@ -21,6 +21,6 @@ they are not bugs in your modifications.)  */
 
 #define bug_report_url "<https://gcc.gnu.org/bugs/>"
 
-#define GCOV_VERSION ((gcov_unsigned_t)0x4232332a)  /* B23* */
+#define GCOV_VERSION ((gcov_unsigned_t)0x4234322a)  /* B42* */
 
 #endif /* VERSION_H */
