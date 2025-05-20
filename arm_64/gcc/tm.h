@@ -21,7 +21,7 @@
 # include "config/aarch64/biarchlp64.h"
 # include "config/aarch64/aarch64.h"
 # include "config/elfos.h"
-# include "config/newlib-stdint.h"
+# include "config/genode-stdint.h"
 # include "config/aarch64/aarch64-elf.h"
 # include "config/aarch64/aarch64-errata.h"
 # include "config/aarch64/aarch64-elf-raw.h"

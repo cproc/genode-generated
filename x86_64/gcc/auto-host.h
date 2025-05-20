@@ -2274,7 +2274,7 @@
 
 /* Define if int64_t uses long as underlying type. */
 #ifndef USED_FOR_TARGET
-#define INT64_T_IS_LONG 1
+/* #undef INT64_T_IS_LONG */
 #endif
 
 
